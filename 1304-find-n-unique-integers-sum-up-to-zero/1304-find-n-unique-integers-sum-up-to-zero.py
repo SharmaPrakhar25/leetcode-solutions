@@ -2,17 +2,6 @@ class Solution:
     def sumZero(self, n: int) -> List[int]:
         ans = [0] * n
         p = -(n//2)
-        # while num > 0:
-        #     ans[idx] = num
-        #     ans[n-idx-1] = -num
-        #     num -= 1
-        #     idx += 1  
-        
-        # for i in range(-(n//2), n//2+1, 1):
-        #     if i==0 and n%2==0:
-        #         continue;   
-        #     ans[idx] = i
-        #     idx+=1
         
         if(n % 2 == 1):
             for i in range(n):
