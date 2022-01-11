@@ -1,12 +1,13 @@
 class Solution:
     def sumZero(self, n: int) -> List[int]:
         ans = [0] * n
-        idx = 0
-        for i in range(n//2,0, -1):
-            ans[idx]  = i
-            ans[n-idx-1] = -i
-            idx+=1
-            
-        
+        num = n//2
+        idx = 0 
+        while num > 0:
+            ans[idx] = num
+            ans[n-idx-1] = -num
+            num -= 1
+            idx += 1  
+
         return ans
         
