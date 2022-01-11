@@ -4,7 +4,7 @@ class Solution:
         idx = 0
         for i in range(n//2,0, -1):
             ans[idx]  = i
-            ans[n-idx-1] = 0-i
+            ans[n-idx-1] = -i
             idx+=1
             
         
