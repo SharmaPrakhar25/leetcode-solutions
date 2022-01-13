@@ -26,9 +26,8 @@ class Solution:
 #             idx += 1
             
 #         return ansIdx if ansIdx != None else -1
-        idx = 0 
         for idx in range(haystacklen - nedlen + 1):
-            if idx + nedlen - 1 < haystacklen and haystack[idx:idx+nedlen] == needle:
+            if haystack[idx:idx+nedlen] == needle:
                 return idx
         
         return -1
