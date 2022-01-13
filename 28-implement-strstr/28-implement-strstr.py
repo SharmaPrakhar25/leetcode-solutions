@@ -25,7 +25,7 @@ class Solution:
             
 #         return ansIdx if ansIdx != None else -1
         idx = 0 
-        for idx in range(len(haystack)):
+        for idx in range(len(haystack) - len(needle) + 1):
             if idx + len(needle) - 1 < len(haystack) and haystack[idx:idx+len(needle)] == needle:
                 return idx
         
