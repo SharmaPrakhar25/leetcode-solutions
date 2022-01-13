@@ -3,6 +3,8 @@ class Solution:
         if needle == '':
             return 0
         
+        nedlen = len(needle)
+        haystacklen = len(haystack)
 #         if len(needle) > len(haystack):
 #             return -1
         
@@ -25,8 +27,8 @@ class Solution:
             
 #         return ansIdx if ansIdx != None else -1
         idx = 0 
-        for idx in range(len(haystack) - len(needle) + 1):
-            if idx + len(needle) - 1 < len(haystack) and haystack[idx:idx+len(needle)] == needle:
+        for idx in range(haystacklen - nedlen + 1):
+            if idx + nedlen - 1 < haystacklen and haystack[idx:idx+nedlen] == needle:
                 return idx
         
         return -1
