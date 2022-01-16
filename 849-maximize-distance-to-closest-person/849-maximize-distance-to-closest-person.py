@@ -10,7 +10,7 @@ class Solution:
                 if lastFilledIndex is not None:
                     mapper[idx] = abs(lastFilledIndex - idx)
                 else:
-                    mapper[idx] = float(inf)
+                    mapper[idx] = len(seats)
                 
         
         for idx in reversed(range(len(seats))):
