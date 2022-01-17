@@ -1,14 +1,16 @@
 class Solution:
     def wordPattern(self, pattern: str, s: str) -> bool:
         mapper = {}
+        taken = set()
         s = s.split(' ')
         if len(s) != len(pattern):
             return False
         
         for idx in range(len(s)):
             if pattern[idx] not in mapper:
-                if s[idx] not in mapper.values():
+                if s[idx] not in taken:
                     mapper.setdefault(pattern[idx],s[idx])
+                    taken.add(s[idx])
                 else:
                     return False
             else:
@@ -16,17 +18,5 @@ class Solution:
                     return False
         
         return True
-            
-        # dct = {}
-        # for i in range(len(pattern)):
-        #     if pattern[i] not in dct:
-        #         if s[i] not in dct.values():
-        #             dct.setdefault(pattern[i], s[i])
-        #         else:
-        #             return False
-        #     else:
-        #         if dct[pattern[i]] != s[i]:
-        #             return False
-        # return True
             
             
