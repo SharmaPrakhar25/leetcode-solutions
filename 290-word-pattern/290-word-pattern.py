@@ -23,7 +23,7 @@ class Solution:
         #         temps.append(mapper[char])
         
         # print(mapper)
-        return True if len(set(pattern)) == len(mapper.keys()) else False
+        return True
             
             
             
