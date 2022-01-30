@@ -1,6 +1,5 @@
 class Solution:
     def isValid(self, s: str) -> bool: 
-        openingBracketSet = set(['[','{','('])
         closingBracketSet = set([']','}',')'])
         openList = []
         mapper = {
@@ -8,14 +7,13 @@ class Solution:
             ')': '(',
             ']': '[' 
         }
-#         {(}}
         for char in s:
             if char in closingBracketSet:
                 if len(openList) < 1:
                     return False
                 else:
                     if openList[-1] == mapper[char]:
-                        del openList[-1]
+                        openList.pop()
                     else:
                         return False
             else:
