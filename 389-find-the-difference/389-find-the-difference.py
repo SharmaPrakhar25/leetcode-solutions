@@ -3,7 +3,7 @@ class Solution:
         ans = 0
         for i in range(len(s)):
             ans = ans ^ ord(s[i]) ^ ord(t[i])
-            print(ans)
+            # print(ans)
         ans ^= ord(t[-1])
         return chr(ans)
 #         char_freq = {}
