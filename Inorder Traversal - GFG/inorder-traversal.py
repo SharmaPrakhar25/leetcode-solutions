@@ -14,14 +14,19 @@ class Node:
 class Solution:
     def InOrder(self,root):
         # code here
-        ans = []
-        if root is not None:
-            data = self.InOrder(root.left)
-            ans += data 
-            ans.append(root.data)
-            data = self.InOrder(root.right)
-            ans += data
-        return ans 
+        # ans = []
+        # if root is not None:
+        #     data = self.InOrder(root.left)
+        #     ans += data 
+        #     ans.append(root.data)
+        #     data = self.InOrder(root.right)
+        #     ans += data
+        # return ans 
+        if root is None:
+            return []
+        return(self.InOrder(root.left)+
+                [root.data]+
+                self.InOrder(root.right))
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
