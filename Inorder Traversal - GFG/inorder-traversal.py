@@ -14,7 +14,8 @@ class Node:
 class Solution:
     def InOrder(self,root):
         # code here
-        # ans = []
+        stack = []
+        ans = []
         # if root is not None:
         #     data = self.InOrder(root.left)
         #     ans += data 
@@ -24,9 +25,20 @@ class Solution:
         # return ans 
         if root is None:
             return []
-        return(self.InOrder(root.left)+
-                [root.data]+
-                self.InOrder(root.right))
+        # return(self.InOrder(root.left)+
+        #         [root.data]+
+        #         self.InOrder(root.right))
+        while 1:
+            while root is not None:
+                stack.append(root)
+                root = root.left
+            if len(stack) == 0:
+                break
+            root = stack.pop()
+            ans.append(root.data)
+            root = root.right
+        
+        return ans
 #{ 
 #  Driver Code Starts
 #Initial Template for Python 3
