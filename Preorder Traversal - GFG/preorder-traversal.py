@@ -12,15 +12,28 @@ class Node:
 '''
 #Function to return a list containing the preorder traversal of the tree.
 def preorder(root):
+    # ans = []
+    # # code here
+    # # recusrive approach
+    # if root is None:
+    #     return []
+    # ans.append(root.data)
+    # return (ans + preorder(root.left) + preorder(root.right))
+    
+    # non recursive approach
     ans = []
-    # code here
-    # recusrive approach
-    if root is None:
-        return []
-    ans.append(root.data)
-    return (ans + preorder(root.left) + preorder(root.right))
+    stack = []
+    while 1:
+        while root is not None:
+            ans.append(root.data)
+            stack.append(root)
+            root = root.left
+        if len(stack) == 0:
+            break
+        root = stack.pop()
+        root = root.right
     
-    
+    return ans
 #{ 
 #  Driver Code Starts
 from collections import deque
