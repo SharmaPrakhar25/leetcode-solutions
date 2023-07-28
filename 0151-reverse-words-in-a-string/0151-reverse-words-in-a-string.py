@@ -10,7 +10,7 @@ class Solution(object):
         for i in range(len(s)):
             if s[i] == ' ':
                 if word != '':
-                    if len(ans) > 0:
+                    if ans != '':
                         ans = word + ' ' +ans
                     else:
                         ans = word + ans
@@ -18,8 +18,8 @@ class Solution(object):
             else:
                 word += s[i]
             
-        if len(word) > 0:
-            if len(ans) > 0:
+        if word != '':
+            if ans != '':
                 ans = word + ' ' +ans
             else:
                 ans = word + ans
