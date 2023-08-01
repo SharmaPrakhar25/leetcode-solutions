@@ -18,3 +18,14 @@ class Solution:
         leftValue = self.preorderTraversal(root.left)
         rightValue = self.preorderTraversal(root.right)
         return output + leftValue + rightValue
+    
+#     def preOrderTraversal(self, root: Optional[TreeNode]) -> List[int]:
+#         staK = []
+#         stak.append(root)
+#         while len(stak) > 0:
+#             currentRoot = stak[-1]
+#             print(currentRoot.val)
+#             if currentRoot.left is not None:
+#                 stak.append(currentRoot.left)
+            
+#         return
