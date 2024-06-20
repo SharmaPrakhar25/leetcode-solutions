@@ -114,25 +114,24 @@ def removePunctuationFromString():
     return ''.join(outputList)
 
 
-chars = ['a', 'e', 'i', 'o', 'u']
-
-def helper(currentString, charToAppend):
+chars = ['c','a','t','d','o','g']
+count = 0
+def helper(chars, currentString, used=set()):
+    global count
     if len(currentString) == len(chars):
-        return currentString
+        count += 1
+        print(count, currentString)
+        return
     
-    currentString.append(charToAppend)
-
     for char in chars:
-        if char != charToAppend:
-            helper(currentString, char)
-
-    return
+        if char not in used:
+            used.add(char)
+            helper(chars, currentString + char, used)
+            used.remove(char)
 
 
 def generatePossibleStringUsingChars():
-    for i in range(len(chars)):
-        helper(chars[i], '')
-    return
+    return helper(chars, '')
 
 
 if __name__ == "__main__":
@@ -143,4 +142,5 @@ if __name__ == "__main__":
     # print(randomChoice())
     # continousInput()
     # print(removePunctuationFromString())
+    print(generatePossibleStringUsingChars())
     pass
