@@ -87,10 +87,52 @@ def count_occurance(nums, target):
         return lIndex - fIndex + 1
     return 0
 
+"""
+Implementation of binary search algorithm
+Search an element in an sorted array using binary search
+Time complexity - O(log(n))
+"""
+def binarySearchIteratively(arr, x):
+    start = 0
+    end = len(arr)
+
+    while start <= end:
+        mid = start + ((end - start) // 2)
+        if arr[mid] < x:
+            start = mid + 1
+        
+        if arr[mid] > x:
+            end = mid - 1
+        
+        if arr[mid] == x:
+            return mid
+    
+    # If the target value is not found, then we can return -1
+    return -1
+
+
+"""
+Binary Search implementation recursive version
+"""
+def binarySearchRecursively(arr, start, end, x):
+    if start < end:
+        return -1
+    
+    mid = start + ((end - start)//2)
+    if arr[mid] < x:
+        binarySearchRecursively(arr, mid+1, end, x)
+    
+    if arr[mid] > x:
+        binarySearchRecursively(arr, start, mid-1, x)
+    
+    if arr[mid] == x:
+        return mid
+
 
 if __name__ == "__main__":
     arr = [int(x) for x in input().split(' ')]
     d = int(input())
+    pass
     # print(find_lower_bound(arr, d))
     # print(find_upper_bound(arr, d))
-    print(count_occurance(arr, d))
+    # print(count_occurance(arr, d))
