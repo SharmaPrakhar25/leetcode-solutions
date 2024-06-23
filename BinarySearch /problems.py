@@ -115,7 +115,7 @@ def binarySearchIteratively(arr, x):
 Binary Search implementation recursive version
 """
 def binarySearchRecursively(arr, start, end, x):
-    if start < end:
+    if start > end:
         return -1
     
     mid = start + ((end - start)//2)
@@ -128,6 +128,39 @@ def binarySearchRecursively(arr, start, end, x):
     if arr[mid] == x:
         return mid
 
+
+def findXInRotatedArray(arr, n, x):
+    """
+    Example 1:
+    Input Format: arr = [4,5,6,7,0,1,2,3], k = 0
+    Result: 4
+    Explanation: Here, the target is 0. We can see that 0 is present in the given rotated sorted array, nums. Thus, we get output as 4, which is the index at which 0 is present in the array.
+
+    Example 2:
+    Input Format: arr = [4,5,6,7,0,1,2], k = 3
+    Result: -1
+    Explanation: Here, the target is 3. Since 3 is not present in the given rotated sorted array. Thus, we get the output as -1.
+    """
+    start = 0
+    end = n -1
+    while start <= end:
+        mid = start + ((end - start)//2)
+
+        if arr[mid] == x:
+            return mid
+
+        if arr[start] <= arr[mid]:
+            if arr[start] <= x and arr[mid] >= x:
+                end = mid - 1
+            else:
+                start = mid + 1
+        else:
+            if arr[mid] <= x and arr[end] >= x:
+                start = mid + 1
+            else:
+                end = mid - 1
+    
+    return -1 
 
 if __name__ == "__main__":
     arr = [int(x) for x in input().split(' ')]
