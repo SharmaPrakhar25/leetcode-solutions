@@ -1,4 +1,5 @@
 class Solution:
+#     checking leethub extension
     def calculateHourHelper(self, arr, k):
         h = 0
         for num in arr:
