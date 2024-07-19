@@ -12,16 +12,8 @@ class Solution:
             return newNode
     
         if root.val > val:
-            if root.left:
-                self.insertIntoBST(root.left, val)
-            else:
-                newNode = TreeNode(val)
-                root.left = newNode
+            root.left = self.insertIntoBST(root.left, val)
         else:
-            if root.right:
-                self.insertIntoBST(root.right, val)
-            else:
-                newNode = TreeNode(val)
-                root.right = newNode
+            root.right = self.insertIntoBST(root.right, val)
         
         return root
