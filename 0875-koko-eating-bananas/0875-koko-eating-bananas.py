@@ -1,21 +1,14 @@
 class Solution:
-#     checking leethub extension
-    def calculateHourHelper(self, arr, k):
-        h = 0
-        for num in arr:
-            h += math.ceil(num / k)
-
-        return h
-    
     def minEatingSpeed(self, piles: List[int], h: int) -> int:
-        bananaPiles = piles
-        bananaPiles.sort()
         start = 1
-        end = bananaPiles[-1]
-        k = math.inf 
+        end = max(piles)
+        k = end
         while start <= end:
-            tempk= start + ((end - start)//2)
-            tempH = self.calculateHourHelper(bananaPiles, tempk)
+            tempk = start + ((end - start)//2)
+            tempH = 0
+            for b in piles:
+                tempH += math.ceil(b / tempk)
+                
             if tempH > h:
                 start = tempk + 1
 
