@@ -107,7 +107,26 @@ class LinkedList:
         while currentNode is not None:
             linked_list.append(currentNode.data)
             currentNode = currentNode.next
-        return linked_list        
+        return linked_list       
+
+    '''
+    def reverseALinkedList(self) -> Node
+    If you want to return the head of reversed linked list
+    use Node in return
+    '''
+    def reverseALinkedList(self) -> None:
+        prev = None
+        curr = self.head
+
+        while curr:
+            temp = curr.next
+            curr.next = prev
+            prev = curr 
+            curr = temp
+        
+        self.head = prev
+        return
+
 
 
 if __name__ == "__main__":
