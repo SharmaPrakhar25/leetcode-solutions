@@ -1,7 +1,3 @@
-#User function Template for python3
-
-
-
 '''
 # Node Class:
 class Node:
@@ -10,8 +6,8 @@ class Node:
         self.left = None
         self.right = None
 '''
-#Function to return a list containing the preorder traversal of the tree.
-def preorder(root):
+# Function to return a list containing the preorder traversal of the tree.
+def preorder_traversal(root):
     # ans = []
     # # code here
     # # recusrive approach
@@ -46,7 +42,7 @@ class Node:
 
 # Function to Build Tree   
 def buildTree(s):
-    #Corner Case
+    # Corner Case
     if(len(s)==0 or s[0]=="N"):           
         return None
         
@@ -107,7 +103,7 @@ if __name__=="__main__":
     for _ in range(0,t):
         s=input()
         root=buildTree(s)
-        res = preorder(root)
+        res = preorder_traversal(root)
         for i in res:
             print (i, end = " ")
         print()
